@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #fbf6f1;
+  --foreground: #374151;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+}
+
+@media print {
+  body {
+    background: white;
+  }
+  .print\:hidden {
+    display: none !important;
+  }
+  header,
+  nav,
+  .no-print {
+    display: none !important;
+  }
+  main {
+    padding: 0 !important;
+    max-width: none !important;
+  }
+  .brief-sheet {
+    box-shadow: none !important;
+    border: none !important;
+  }
+}
