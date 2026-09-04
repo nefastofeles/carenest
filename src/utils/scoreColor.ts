@@ -14,3 +14,10 @@ export const SCORE_GRADIENT_STOPS = [
   { offset: "50%", color: "hsl(48 92% 48%)" },
   { offset: "100%", color: "hsl(142 62% 36%)" },
 ];
+
+/** Low is better: green at the left, red at the right. */
+export const SCORE_GRADIENT_STOPS_REVERSED = [
+  { offset: "0%", color: "hsl(142 62% 36%)" },
+  { offset: "50%", color: "hsl(48 92% 48%)" },
+  { offset: "100%", color: "hsl(0 82% 46%)" },
+];

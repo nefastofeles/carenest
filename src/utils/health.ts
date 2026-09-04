@@ -237,6 +237,7 @@ export type KpiBar = {
   tone: BarTone;
   note: string;
   max: number;
+  lowerBetter?: boolean;
 };
 
 function higherBetter(value: number, target: number): BarTone {
@@ -308,6 +309,7 @@ export function memberKpiBars(memberId: string): KpiBar[] {
       tone: bmiTone(profile.bmi, bmiTarget, adult),
       note: "Calculated from height/weight on file. WHO adult range 18.5–24.9; child values are age estimates.",
       max: Math.max(40, profile.bmi * 1.2),
+      lowerBetter: true,
     },
     {
       id: "bp",
@@ -330,6 +332,7 @@ export function memberKpiBars(memberId: string): KpiBar[] {
       tone: lowerBetter(profile.resting_hr_avg, rhrTarget, Math.round(rhrTarget * 0.05)),
       note: "Device-reported (not medical diagnosis)",
       max: 120,
+      lowerBetter: true,
     },
   ];
 }

@@ -328,3 +328,7 @@ Append-only. Newest at the bottom.
 ### 2026-09-04 — Portal Log in below faces
 
 - Moved the magenta **Log in** button from vertical center to the bottom of the family hero (`absolute inset-0` + `items-end`) so the children’s faces stay visible. No card, no logo overlay.
+
+### 2026-09-04 — L1 BMI and resting HR bars
+
+- BMI and avg resting heart rate bars use a reversed gradient (green at low, red at high). Sleep, steps, and blood pressure unchanged.

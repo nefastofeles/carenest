@@ -1,4 +1,4 @@
-import { SCORE_GRADIENT_STOPS } from "@/utils/scoreColor";
+import { SCORE_GRADIENT_STOPS, SCORE_GRADIENT_STOPS_REVERSED } from "@/utils/scoreColor";
 
 export function TargetBar({
   id,
@@ -9,6 +9,7 @@ export function TargetBar({
   displayTarget,
   note,
   max,
+  lowerBetter = false,
 }: {
   id: string;
   label: string;
@@ -18,11 +19,13 @@ export function TargetBar({
   displayTarget: string;
   note: string;
   max: number;
+  lowerBetter?: boolean;
 }) {
   const cap = Math.max(max, value, target, 1);
   const valuePct = Math.min(100, (value / cap) * 100);
   const targetPct = Math.min(100, (target / cap) * 100);
   const gid = `bar-grad-${id}`;
+  const stops = lowerBetter ? SCORE_GRADIENT_STOPS_REVERSED : SCORE_GRADIENT_STOPS;
 
   return (
     <div className="rounded-2xl bg-white p-3.5 shadow-sm shadow-nest-peach/30 ring-1 ring-nest-peach/70">
@@ -37,7 +40,7 @@ export function TargetBar({
         <svg className="absolute inset-0 h-full w-full" preserveAspectRatio="none" aria-hidden="true">
           <defs>
             <linearGradient id={gid} x1="0" y1="0" x2="1" y2="0">
-              {SCORE_GRADIENT_STOPS.map((s) => (
+              {stops.map((s) => (
                 <stop key={s.offset} offset={s.offset} stopColor={s.color} />
               ))}
             </linearGradient>

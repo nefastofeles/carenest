@@ -147,6 +147,7 @@ export default function MemberPage({
                 displayTarget={k.displayTarget}
                 note={k.note}
                 max={k.max}
+                lowerBetter={k.lowerBetter}
               />
             ))}
           </div>
